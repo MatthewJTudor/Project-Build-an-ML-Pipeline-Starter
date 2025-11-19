@@ -115,8 +115,23 @@ def go(args):
 
     ######################################
     # Here we save variable r_squared under the "r2" key
-    run.summary['r2'] = r_squared
-    run.summary['mae'] = mae
+    # run.summary['r2'] = r_squared
+    # run.summary['mae'] = mae
+    # run.summary["max_depth"] = rf_config.get("max_depth")
+    # run.summary["n_estimators"] = rf_config.get("n_estimators")
+    # run.summary["min_samples_split"] = rf_config.get("min_samples_split")
+    # run.summary["min_samples_leaf"] = rf_config.get("min_samples_leaf")
+    # run.summary["max_features"] = rf_config.get("max_features")
+    
+    wandb.log({'r2': r_squared,
+               'mae': mae,
+               "max_depth": rf_config.get("max_depth"),
+               "n_estimators" : rf_config.get("n_estimators"),
+               "min_samples_split": rf_config.get("min_samples_split"),
+               "min_samples_leaf": rf_config.get("min_samples_leaf"),
+               "max_features": rf_config.get("max_features")
+    })
+    
     # Now save the variable mae under the key "mae".
     # YOUR CODE HERE
     ######################################
