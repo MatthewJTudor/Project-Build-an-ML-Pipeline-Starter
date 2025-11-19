@@ -29,9 +29,12 @@ def go(args):
     df = df[idx].copy()
     # Convert last_review to datetime
     df['last_review'] = pd.to_datetime(df['last_review'])
-
+    
+    # Note: Udacity instructions said to complete the code below to fix sample2.csv.
+    # The filtering code below was already present when forked.
     idx = df['longitude'].between(-74.25, -73.50) & df['latitude'].between(40.5, 41.2)
     df = df[idx].copy()
+    
     # Save the cleaned file
     df.to_csv('clean_sample.csv',index=False)
 
